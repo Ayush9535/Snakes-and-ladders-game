@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /*  */
+    font-family: 'Inter', sans-serif;
+    background-color: #FF7A00;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-dir{
+    flex-direction: column;
+}
+
+.sp-aro{
+    justify-content: space-around;
+}
+
+.img2{
+    margin-left: 4vw;
+}
+
+.heading-style{
+    position: relative;
+    font-size: 5vw;
+    color: #FF0000;
+    /* -webkit-text-stroke: 3px black; */
+    text-shadow: 0 0 5px black;
+    font-style: italic;
+}
+
+#heading{
+    margin-top: 50px;
+}
+
+#heading img{
+    width: 60px;
+}
+
+.r10{
+    right: 10px;
+}
+.r20{
+    right: 20px;
+}
+.r30{
+    right: 30px;
+}
+.r40{
+    right: 40px;
+}
+.r50{
+    right: 50px;
+}
+.r60{
+    right: 60px;
+}
+
+button{
+    width: 15vw;
+    height: 7vh;
+    margin-bottom: 3vw;
+    font-size: 1.5vw;
+    font-family: 'Jost', sans-serif;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 10px;
+}
+
+.maindiv{
+    margin-top: 5vw;
+}
