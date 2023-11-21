@@ -1,0 +1,28 @@
+@media all and (min-width:350px) and (max-width:850px){
+    .snakewithladder{
+        display: none;
+    }
+    .main-div{
+        flex-direction: column;
+        margin: 0;
+    }
+    .player-icon-div{
+        width:38vw;
+        height:38vw;
+    }
+    #heading{
+        margin-bottom: 0;
+    }
+    .main-div h1{
+        font-size: 5.5vw;
+    }
+    .player-icon{
+        width: 10vw;
+        height: 10vw;
+        margin-top: 10px;
+    }
+    button{
+        font-size: 6vw;
+        width: 35vw;
+    }
+}

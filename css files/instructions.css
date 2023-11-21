@@ -49,4 +49,7 @@ ol{
     #heading{
         margin-bottom: 10vw;
     }
+    .instructions-div h1{
+        font-size: 7vw;
+    }
 }
