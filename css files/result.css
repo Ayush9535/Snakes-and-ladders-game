@@ -1,0 +1,19 @@
+@media all and (min-width:350px) and (max-width:850px){
+    .snakewithladder{
+        display: none;
+    }
+    .result-div h1{
+        font-size: 8vw;
+    }
+    .result-div h2{
+        font-size: 5vw;
+        margin-bottom: 12vw;
+    }
+    .result-div{
+        gap: 0;
+        /* width: 50vw; */
+    }
+    .result-text{
+        right: 0;
+    }
+}
