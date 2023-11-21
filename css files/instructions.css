@@ -30,3 +30,20 @@ ol{
 .instructions-div h1{
     text-decoration: underline;
 }
+
+@media all and (min-width:350px) and (max-width:850px){
+    .instructions-div{
+        width: 80vw;
+        height: 90vw;
+        margin-top: 2vh;
+        padding-left: 5vw;
+    }
+    ol{
+        font-size: 4vw;
+        line-height: 5vw;
+        margin-top: 3vh;
+    }
+    button{
+        font-size: 7vw;
+    }
+}
