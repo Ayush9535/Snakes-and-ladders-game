@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
 
+
 *{
     margin: 0;
     padding: 0;
@@ -75,6 +76,7 @@ button{
     background-color: #D9D9D9;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .maindiv{
@@ -96,6 +98,60 @@ input{
 label{
     font-family: 'Jost', sans-serif;
     font-weight: bold;
-    font-size: 1.5vw;
+    font-size: 2vw;
+    color: white;
 }
 
+.player-icon{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+}
+
+.player-icon-div{
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1vw;
+    place-items: center;
+    width: 18vw;
+    height: 18vw;
+    text-align: center;
+}
+
+.green{
+    background-color: #18FF04;
+}
+
+.yellow{
+    background-color: #EBFF00;
+}
+
+.purple{
+    background-color: #FF00E5;
+}
+
+.blue{
+    background-color: #06F0FF;
+}
+
+.main-div{
+    gap: 10vw;
+    margin: 5vw 20vw 0 0;    
+}
+
+.main-div h1{
+    font-size: 1.7vw;
+    text-align: center;
+    color: white;
+    margin-top: 2vw;
+    font-family: 'Jost', sans-serif;
+}
+
+.btn{
+    margin: 0;
+}
+
+.btn-div{
+    margin-top: 3vw;
+}
