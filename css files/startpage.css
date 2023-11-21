@@ -108,6 +108,7 @@ label{
     height: 5vw;
     border-radius: 50%;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .player-icon-div{
@@ -119,6 +120,10 @@ label{
     width: 18vw;
     height: 18vw;
     text-align: center;
+}
+
+.blur{
+    filter: blur(10px);
 }
 
 .green{
