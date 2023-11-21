@@ -1,0 +1,19 @@
+@media all and (min-width:350px) and (max-width:850px){
+    .snakewithladder , .img2{
+        display: none;
+    }
+
+    input{
+        width: 70vw;
+        font-size: 5vw;
+    }
+    label{
+        font-size: 7vw;
+    }
+    .btn-div{
+        margin-top: 20vw;
+    }
+    button{
+        width: 30vw;
+    }
+}
