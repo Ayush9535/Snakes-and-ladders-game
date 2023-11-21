@@ -155,3 +155,24 @@ label{
 .btn-div{
     margin-top: 3vw;
 }
+
+.result-div{
+    color: white;
+    gap: 45vw;
+    font-family: 'Jost', sans-serif;
+    width: 100vw;
+}
+
+.result-div h1{
+    margin-bottom: 3vw;
+}
+
+.result-div h2{
+    font-size: 1.2vw;
+}
+
+.result-text{
+    position: relative;
+    right: 30vw;
+}
+
