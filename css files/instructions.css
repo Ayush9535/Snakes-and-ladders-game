@@ -1,0 +1,31 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button{
+    margin-bottom: 0;
+}
+
+ol{
+    text-align: left;
+    margin: 5vh 3vw 0;
+    line-height: 2vw;
+    font-weight: bold;
+}
+
+.instructions-div{
+    width: 50vw;
+    background-color: #D9D9D9;
+    padding: 3vw;
+    font-family: 'Jost', sans-serif;
+    margin: 8vh 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.instructions-div h1{
+    text-decoration: underline;
+}
