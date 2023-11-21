@@ -23,6 +23,8 @@ purple1.addEventListener("click" , ()=>{
     blue1.classList.add("blur")
     yellow1.disabled = true
     yellow1.classList.add("blur")
+    purple2.disabled = true
+    purple2.classList.add("blur")
 })
 green1.addEventListener("click" , ()=>{
     player1color = "#18FF04"
@@ -33,6 +35,8 @@ green1.addEventListener("click" , ()=>{
     blue1.classList.add("blur")
     yellow1.disabled = true
     yellow1.classList.add("blur")
+    green2.disabled = true
+    green2.classList.add("blur")
 })
 blue1.addEventListener("click" , ()=>{
     player1color = "#06F0FF"
@@ -43,6 +47,8 @@ blue1.addEventListener("click" , ()=>{
     purple1.classList.add("blur")
     yellow1.disabled = true
     yellow1.classList.add("blur")
+    blue2.disabled = true
+    blue2.classList.add("blur")
 })
 yellow1.addEventListener("click" , ()=>{
     player1color = "#EBFF00"
@@ -53,6 +59,8 @@ yellow1.addEventListener("click" , ()=>{
     blue1.classList.add("blur")
     purple1.disabled = true
     purple1.classList.add("blur")
+    yellow2.disabled = true
+    yellow2.classList.add("blur")
 })
 purple2.addEventListener("click" , ()=>{
     player2color = "#FF00E5"
@@ -63,6 +71,8 @@ purple2.addEventListener("click" , ()=>{
     blue2.classList.add("blur")
     yellow2.disabled = true
     yellow2.classList.add("blur")
+    purple1.disabled = true
+    purple1.classList.add("blur")
 })
 green2.addEventListener("click" , ()=>{
     player2color = "#18FF04"
@@ -73,6 +83,8 @@ green2.addEventListener("click" , ()=>{
     blue2.classList.add("blur")
     yellow2.disabled = true
     yellow2.classList.add("blur")
+    green1.disabled = true
+    green1.classList.add("blur")
 })
 blue2.addEventListener("click" , ()=>{
     player2color = "#06F0FF"
@@ -83,6 +95,8 @@ blue2.addEventListener("click" , ()=>{
     purple2.classList.add("blur")
     yellow2.disabled = true
     yellow2.classList.add("blur")
+    blue1.disabled = true
+    blue1.classList.add("blur")
 })
 yellow2.addEventListener("click" , ()=>{
     player2color = "#EBFF00"
@@ -93,6 +107,8 @@ yellow2.addEventListener("click" , ()=>{
     blue2.classList.add("blur")
     purple2.disabled = true
     purple2.classList.add("blur")
+    yellow1.disabled = true
+    yellow1.classList.add("blur")
 })
 
 
