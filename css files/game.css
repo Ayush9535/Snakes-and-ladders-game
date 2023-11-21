@@ -5,3 +5,31 @@ button{
 #heading{
     margin-top: 0;
 }
+
+.game-board{
+    background-color: red;
+    width: 40vw;
+    height: 40vw;
+}
+
+.turn{
+    width: 15vw;
+    background-color: #D9D9D9;
+    height: 5vw;
+    text-align: center;
+    margin: 3vw 0;
+    border-radius: 10px;
+}
+
+#player1-div{
+    width: 15vw;
+    height: 5vw;
+}
+#player2-div{
+    width: 10vw;
+    height: 3vw;
+}
+
+.turn-board img{
+    cursor: pointer;
+}
