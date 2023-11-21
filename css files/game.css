@@ -7,7 +7,7 @@ button{
 }
 
 .game-board{
-    background-color: red;
+    /* background-color: red; */
     width: 40vw;
     height: 40vw;
 }
@@ -33,6 +33,39 @@ button{
 .turn-board img{
     cursor: pointer;
     width: 100px;
+}
+
+.dir-rev{
+    flex-direction: row-reverse;
+}
+
+.row1 div , .row2 div{
+    width: 4vw;
+    height: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row1 div:nth-child(even){
+    background-color: #F32E2E;
+}
+.row1 div:nth-child(odd){
+    background-color: #ffffffcb;
+}
+.row2 div:nth-child(even){
+    background-color: #F32E2E;
+}
+.row2 div:nth-child(odd){
+    background-color: #ffffffcb;
+}
+
+#win-box{
+    background-color: green;
+}
+
+#start-box{
+    background-color: yellow;
 }
 
 @media all and (min-width:350px) and (max-width:850px){
@@ -82,5 +115,9 @@ button{
     }
     #heading{
         margin-top: 5vw;
+    }
+    .row1 div , .row2 div{
+        width: 8.5vw;
+        height: 8.5vw;
     }
 }
