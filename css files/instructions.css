@@ -35,7 +35,7 @@ ol{
     .instructions-div{
         width: 80vw;
         height: 90vw;
-        margin-top: 2vh;
+        margin-top: 0;
         padding-left: 5vw;
     }
     ol{
@@ -45,5 +45,8 @@ ol{
     }
     button{
         font-size: 7vw;
+    }
+    #heading{
+        margin-bottom: 10vw;
     }
 }
