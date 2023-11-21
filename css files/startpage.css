@@ -93,6 +93,7 @@ input{
     border: none;
     border-radius: 10px;
     padding-left: 1vw;
+    outline: none;
 }
 
 label{
@@ -179,3 +180,6 @@ label{
     right: 30vw;
 }
 
+.next-btn{
+    margin-left: 5vw;
+}
