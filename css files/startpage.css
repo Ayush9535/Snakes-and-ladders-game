@@ -29,6 +29,7 @@ body{
 
 .img2{
     margin-left: 4vw;
+    width: 350px;
 }
 
 .heading-style{
@@ -187,4 +188,37 @@ label{
 
 .next-btn{
     margin-left: 5vw;
+}
+
+.snakewithladder{
+    width: 350px;
+}
+
+@media all and (min-width:350px) and (max-width:850px){
+    .snakewithladder{
+        display: none;
+    }
+
+    .img2{
+        margin-top: 20vw;
+        width: 150px;
+    }
+
+    .heading-style{
+        font-size: 15vw;
+    }
+
+    #heading{
+        flex-direction: column;
+        margin-bottom: 20vw;
+        margin-left:13vw;
+    }
+
+    .maindiv{
+        flex-direction: column;
+    }
+    button{
+        width: 40vw;
+        font-size: 5vw;
+    }
 }
