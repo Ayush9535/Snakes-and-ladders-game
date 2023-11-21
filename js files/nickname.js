@@ -11,6 +11,8 @@ document.getElementById("nickname-next").addEventListener("click" ,  ()=>{
     var player1 = document.getElementById("player1").value
     var player2 = document.getElementById("player2").value
 
+    localStorage.setItem("player1Name" , player1)
+    localStorage.setItem("player2Name" , player2)
 
     if (player1 == "" || player2 == ""){
         alert("Enter Nickname for player..!!")
