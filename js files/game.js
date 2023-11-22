@@ -32,11 +32,19 @@ document.getElementById("player2-div").innerHTML = localStorage.getItem("player2
 
 var dice = document.getElementById("dice")
 var diceNumber;
+var diceAudio = new Audio("./Audio files/dice-142528.mp3")
+var ladderAudio = new Audio("./Audio files/Ladder.wav")
+var snakeAudio = new Audio("./Audio files/SnakeBite.wav")
 
-dice.addEventListener("click" , ()=>{
+document.getElementById("dicebtn").addEventListener("click" , ()=>{
+    diceAudio.play()
+    document.getElementById("dicebtn").disabled = true
     diceNumber = Math.floor(Math.random()*6)
     dice.src = `./Images/${diceNumber+1}.png`
     start()
+    diceAudio.addEventListener("ended" , function(){
+        document.getElementById("dicebtn").disabled = false
+    })
 })
 
 var player1CurrentPosition = 1;
@@ -68,12 +76,13 @@ function start(){
         player1CurrentPosition += diceNumber+1
         console.log(player1CurrentPosition , "player1")
 
+        // condition to check if position is going greater than 100
         if (player1CurrentPosition > 100){
             player1CurrentPosition -= diceNumber+1
 
             document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
             
-
+            // checking if both player have same position 
             if (player1CurrentPosition == player2CurrentPosition){
 
                 samePosition = true;
@@ -95,6 +104,7 @@ function start(){
             document.getElementById("player2-div").style.animation = "turn 1s infinite ease-in-out"
         }else{
             
+            // adding icon to current position of player 
             document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
 
             if (player1CurrentPosition == player2CurrentPosition){
@@ -109,42 +119,49 @@ function start(){
                 document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
             }
             
+            // after win 
             if (player1CurrentPosition == 100){
+                var winSound = new Audio("./Audio files/Winning sound.mp3")
+                winSound.play()
                 setTimeout(()=>{
 
                     localStorage.setItem("winner" , localStorage.getItem("player1Name"))
 
                     window.location.href = "result.html"
-                } , 1200)
+                } , 1000)
 
                 localStorage.setItem("rollCount" , player1RollCount)
 
                 return;
             }
 
-            // console.log(checksnake(player1CurrentPosition))
-            // console.log(checkladder(player1CurrentPosition))
 
             if (checksnake(player1CurrentPosition) != -1){
 
-                // remove the icon 
-                document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
-                // update the position 
-                player1CurrentPosition = SnakeLocations[checksnake(player1CurrentPosition)].tail
-                // add the icon 
-                document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-                document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+                snakeAudio.play()
+                snakeAudio.addEventListener("ended" , function(){
+                    // remove the icon 
+                    document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
+                    // update the position 
+                    player1CurrentPosition = SnakeLocations[checksnake(player1CurrentPosition)].tail
+                    // add the icon 
+                    document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
+                    document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+                })
 
 
             }else if (checkladder(player1CurrentPosition) != -1){
 
-                // remove the icon 
-                document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
-                // update the position 
-                player1CurrentPosition = LaddersLocations[checkladder(player1CurrentPosition)].to
-                // add the icon
-                document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-                document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+                ladderAudio.play()
+                ladderAudio.addEventListener("ended" , function(){
+                    // remove the icon 
+                    document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
+                    // update the position 
+                    player1CurrentPosition = LaddersLocations[checkladder(player1CurrentPosition)].to
+                    // add the icon
+                    document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
+                    documet.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+                })
 
             }
 
@@ -223,6 +240,8 @@ function start(){
             }
             
             if (player2CurrentPosition == 100){
+                var winSound = new Audio("./Audio files/Winning sound.mp3")
+                winSound.play()
                 setTimeout(()=>{
 
                     localStorage.setItem("winner" , localStorage.getItem("player2Name"))
@@ -239,24 +258,30 @@ function start(){
 
             if (checksnake(player2CurrentPosition) != -1){
 
-                // remove the icon 
-                document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon"))
-                // update the position 
-                player2CurrentPosition = SnakeLocations[checksnake(player2CurrentPosition)].tail
-                // add the icon
-                document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
-                document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+                snakeAudio.play()
+                snakeAudio.addEventListener("ended" , function(){
+                    // remove the icon 
+                    document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon"))
+                    // update the position 
+                    player2CurrentPosition = SnakeLocations[checksnake(player2CurrentPosition)].tail
+                    // add the icon
+                    document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
+                    document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+                })
 
 
             }else if (checkladder(player2CurrentPosition) != -1){
 
-                // remove the icon 
-                document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon"))
-                // update the position 
-                player2CurrentPosition = LaddersLocations[checkladder(player2CurrentPosition)].to
-                // add the icon
-                document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
-                document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+                ladderAudio.play()
+                ladderAudio.addEventListener("ended" , function(){
+                    // remove the icon 
+                    document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon")) 
+                    // update the position 
+                    player2CurrentPosition = LaddersLocations[checkladder(player2CurrentPosition)].to
+                    // add the icon
+                    document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
+                    document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+                })
 
             }
 

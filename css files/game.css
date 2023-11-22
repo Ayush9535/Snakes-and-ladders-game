@@ -186,6 +186,12 @@ button{
     yellow 100%);
 }
 
+#dicebtn{
+    background-color: transparent;
+    margin: 0;
+    height: fit-content;
+}
+
 
 
 @media all and (min-width:350px) and (max-width:850px){
@@ -215,7 +221,7 @@ button{
     }
     #dice{
         width: 70px;
-        margin: 0 4vw;
+        margin: 0;
     }
     .game-board{
         width: 85vw;
