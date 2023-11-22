@@ -178,6 +178,14 @@ button{
     z-index: 10;
 }
 
+.icon2{
+    background: linear-gradient(to right,
+    green 0%,
+    green 50%,
+    yellow 50%,
+    yellow 100%);
+}
+
 
 
 @media all and (min-width:350px) and (max-width:850px){

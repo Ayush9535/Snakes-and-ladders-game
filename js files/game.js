@@ -42,7 +42,17 @@ function start(){
             player1CurrentPosition -= diceNumber+1
 
             document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-            document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+            
+
+            if (player1CurrentPosition == player2CurrentPosition){
+                document.getElementById("player2-icon").style.background = `linear-gradient(to right,
+                    ${localStorage.getItem("player1color")} 0%,
+                    ${localStorage.getItem("player1color")} 50%,
+                    ${localStorage.getItem("player2color")} 50%,
+                    ${localStorage.getItem("player2color")} 100%)`
+            }else{
+                document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+            }
 
             turn = 2;
 
@@ -50,7 +60,16 @@ function start(){
             document.getElementById("player2-div").style.animation = "turn 1s infinite ease-in-out"
         }else{
             document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-            document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+
+            if (player1CurrentPosition == player2CurrentPosition){
+                document.getElementById("player2-icon").style.background = `linear-gradient(to right,
+                    ${localStorage.getItem("player1color")} 0%,
+                    ${localStorage.getItem("player1color")} 50%,
+                    ${localStorage.getItem("player2color")} 50%,
+                    ${localStorage.getItem("player2color")} 100%)`
+            }else{
+                document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+            }
             
             if (player1CurrentPosition == 100){
                 setTimeout(()=>{
@@ -71,6 +90,8 @@ function start(){
         }
 
     }
+
+
     else{
 
         player2RollCount++
@@ -84,7 +105,17 @@ function start(){
             player2CurrentPosition -= diceNumber+1
 
             document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
-            document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+            // document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+
+            if (player1CurrentPosition == player2CurrentPosition){
+                document.getElementById("player1-icon").style.background = `linear-gradient(to right,
+                    ${localStorage.getItem("player1color")} 0%,
+                    ${localStorage.getItem("player1color")} 50%,
+                    ${localStorage.getItem("player2color")} 50%,
+                    ${localStorage.getItem("player2color")} 100%)`
+            }else{
+                document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+            }
 
             turn = 1;
 
@@ -93,7 +124,17 @@ function start(){
         }
         else{
             document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
-            document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+            // document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+
+            if (player1CurrentPosition == player2CurrentPosition){
+                document.getElementById("player1-icon").style.background = `linear-gradient(to right,
+                    ${localStorage.getItem("player1color")} 0%,
+                    ${localStorage.getItem("player1color")} 50%,
+                    ${localStorage.getItem("player2color")} 50%,
+                    ${localStorage.getItem("player2color")} 100%)`
+            }else{
+                document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+            }
             
             if (player2CurrentPosition == 100){
                 setTimeout(()=>{
