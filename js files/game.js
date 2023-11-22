@@ -74,7 +74,7 @@ function start(){
 
         // gets random no from dice and adds it to the position to move 
         player1CurrentPosition += diceNumber+1
-        console.log(player1CurrentPosition , "player1")
+        // console.log(player1CurrentPosition , "player1")
 
         // condition to check if position is going greater than 100
         if (player1CurrentPosition > 100){
@@ -83,19 +83,7 @@ function start(){
             document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
             
             // checking if both player have same position 
-            if (player1CurrentPosition == player2CurrentPosition){
-
-                samePosition = true;
-
-                document.getElementById("player2-icon").style.background = `linear-gradient(to right,
-                    ${localStorage.getItem("player1color")} 0%,
-                    ${localStorage.getItem("player1color")} 50%,
-                    ${localStorage.getItem("player2color")} 50%,
-                    ${localStorage.getItem("player2color")} 100%)`
-            }else{
-                samePosition = false
-                document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
-            }
+            checkSamePosition()
 
              // change turn 
             turn = 2;
@@ -107,17 +95,7 @@ function start(){
             // adding icon to current position of player 
             document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
 
-            if (player1CurrentPosition == player2CurrentPosition){
-                samePosition = true
-                document.getElementById("player2-icon").style.background = `linear-gradient(to right,
-                    ${localStorage.getItem("player1color")} 0%,
-                    ${localStorage.getItem("player1color")} 50%,
-                    ${localStorage.getItem("player2color")} 50%,
-                    ${localStorage.getItem("player2color")} 100%)`
-            }else{
-                samePosition = false
-                document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
-            }
+            checkSamePosition()
             
             // after win 
             if (player1CurrentPosition == 100){
@@ -137,13 +115,14 @@ function start(){
 
 
             if (checksnake(player1CurrentPosition) != -1){
-
+                let Snakeindex = checksnake(player1CurrentPosition)
                 snakeAudio.play()
                 snakeAudio.addEventListener("ended" , function(){
                     // remove the icon 
                     document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
-                    // update the position 
-                    player1CurrentPosition = SnakeLocations[checksnake(player1CurrentPosition)].tail
+                    // update the position
+                    console.log(Snakeindex) 
+                    player1CurrentPosition = SnakeLocations[Snakeindex].tail
                     // add the icon 
                     document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
                     document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
@@ -151,16 +130,17 @@ function start(){
 
 
             }else if (checkladder(player1CurrentPosition) != -1){
-
+                let ladderIndex = checkladder(player1CurrentPosition)
                 ladderAudio.play()
                 ladderAudio.addEventListener("ended" , function(){
                     // remove the icon 
                     document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
-                    // update the position 
-                    player1CurrentPosition = LaddersLocations[checkladder(player1CurrentPosition)].to
+                    // update the position
+                    console.log(ladderIndex) 
+                    player1CurrentPosition = LaddersLocations[ladderIndex].to
                     // add the icon
                     document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-                    documet.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+                    document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
                 })
 
             }
@@ -179,7 +159,7 @@ function start(){
         player2RollCount++
 
         if (samePosition == true){
-            console.log("hello")
+            // console.log("hello")
             document.getElementById(player2CurrentPosition.toString()).innerHTML = player2CurrentPosition + '<span id="player1-icon" class="icon"></span>'
             document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
 
@@ -191,7 +171,7 @@ function start(){
         }
 
         player2CurrentPosition += diceNumber+1
-        console.log(player2CurrentPosition , "player2")
+        // console.log(player2CurrentPosition , "player2")
 
         if (player2CurrentPosition > 100){
             player2CurrentPosition -= diceNumber+1
@@ -199,20 +179,7 @@ function start(){
             document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
             // document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
 
-            if (player1CurrentPosition == player2CurrentPosition){
-
-                samePosition = true; 
-
-                document.getElementById("player1-icon").style.background = `linear-gradient(to right,
-                    ${localStorage.getItem("player1color")} 0%,
-                    ${localStorage.getItem("player1color")} 50%,
-                    ${localStorage.getItem("player2color")} 50%,
-                    ${localStorage.getItem("player2color")} 100%)`
-            }else{
-
-                samePosition = false
-                document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
-            }
+            checkSamePosition()
 
              // change turn 
             turn = 1;
@@ -225,19 +192,7 @@ function start(){
         
             document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
 
-            if (player1CurrentPosition == player2CurrentPosition){
-
-                samePosition = true
-
-                document.getElementById("player1-icon").style.background = `linear-gradient(to right,
-                    ${localStorage.getItem("player1color")} 0%,
-                    ${localStorage.getItem("player1color")} 50%,
-                    ${localStorage.getItem("player2color")} 50%,
-                    ${localStorage.getItem("player2color")} 100%)`
-            }else{
-                samePosition = false
-                document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
-            }
+            checkSamePosition()
             
             if (player2CurrentPosition == 100){
                 var winSound = new Audio("./Audio files/Winning sound.mp3")
@@ -247,7 +202,7 @@ function start(){
                     localStorage.setItem("winner" , localStorage.getItem("player2Name"))
 
                     window.location.href = "result.html"
-                } , 1200)
+                } , 1000)
 
                 localStorage.setItem("rollCount" , player2RollCount)
 
@@ -257,13 +212,14 @@ function start(){
             
 
             if (checksnake(player2CurrentPosition) != -1){
-
+                let Snakeindex1 = checksnake(player2CurrentPosition)
                 snakeAudio.play()
                 snakeAudio.addEventListener("ended" , function(){
                     // remove the icon 
                     document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon"))
-                    // update the position 
-                    player2CurrentPosition = SnakeLocations[checksnake(player2CurrentPosition)].tail
+                    // update the position
+                    console.log(Snakeindex1) 
+                    player2CurrentPosition = SnakeLocations[Snakeindex1].tail
                     // add the icon
                     document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
                     document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
@@ -271,13 +227,14 @@ function start(){
 
 
             }else if (checkladder(player2CurrentPosition) != -1){
-
+                let ladderIndex1 = checkladder(player2CurrentPosition)
                 ladderAudio.play()
                 ladderAudio.addEventListener("ended" , function(){
                     // remove the icon 
                     document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon")) 
                     // update the position 
-                    player2CurrentPosition = LaddersLocations[checkladder(player2CurrentPosition)].to
+                    console.log(ladderIndex1)
+                    player2CurrentPosition = LaddersLocations[ladderIndex1].to
                     // add the icon
                     document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
                     document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
@@ -315,4 +272,31 @@ function checkladder(position){
     }   
     return -1
 
+}
+
+function checkSamePosition(){
+    if (player1CurrentPosition == player2CurrentPosition){
+
+        samePosition = true
+        if (turn == 1){
+            document.getElementById("player2-icon").style.background = `linear-gradient(to right,
+                ${localStorage.getItem("player1color")} 0%,
+                ${localStorage.getItem("player1color")} 50%,
+                ${localStorage.getItem("player2color")} 50%,
+                ${localStorage.getItem("player2color")} 100%)`
+        }else{
+            document.getElementById("player1-icon").style.background = `linear-gradient(to right,
+                ${localStorage.getItem("player1color")} 0%,
+                ${localStorage.getItem("player1color")} 50%,
+                ${localStorage.getItem("player2color")} 50%,
+                ${localStorage.getItem("player2color")} 100%)`
+        }
+    }else{
+        samePosition = false
+        if (turn == 1){
+            document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+        }else{
+            document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+        }
+    }
 }
