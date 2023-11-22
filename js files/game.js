@@ -160,7 +160,7 @@ function start(){
                     player1CurrentPosition = LaddersLocations[checkladder(player1CurrentPosition)].to
                     // add the icon
                     document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-                    documet.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+                    document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
                 })
 
             }
