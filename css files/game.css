@@ -25,10 +25,20 @@ button{
 #player1-div{
     width: 15vw;
     height: 5vw;
+    animation: turn 1s infinite ease-in-out;
 }
 #player2-div{
-    width: 10vw;
-    height: 3vw;
+    width: 15vw;
+    height: 5vw;
+}
+
+@keyframes turn{
+    0% , 100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
 }
 
 .turn-board img{
