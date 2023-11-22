@@ -1,4 +1,4 @@
-
+// Storing the locations of snakes and ladders 
 SnakeLocations = [
     {head:32,tail:10},
     {head:62,tail:18},
