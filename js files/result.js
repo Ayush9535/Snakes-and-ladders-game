@@ -4,3 +4,6 @@ document.getElementById("playagain").addEventListener("click" ,  ()=>{
 document.getElementById("quit").addEventListener("click" ,  ()=>{
     window.location.href = "index.html"
 })
+
+document.getElementById("winner-name").innerHTML = localStorage.getItem("winner")
+document.getElementById("rollCount").innerHTML = localStorage.getItem("rollCount")

@@ -31,28 +31,87 @@ var player2RollCount = 0;
 function start(){
     if (turn == 1){
 
+        player1RollCount++
+
         document.getElementById(player1CurrentPosition.toString()).innerHTML = player1CurrentPosition
 
         player1CurrentPosition += diceNumber+1
         console.log(player1CurrentPosition , "player1")
 
-        document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
+        if (player1CurrentPosition > 100){
+            player1CurrentPosition -= diceNumber+1
 
-        turn = 2;
-        document.getElementById("player1-div").style.animation = "none"
-        document.getElementById("player2-div").style.animation = "turn 1s infinite ease-in-out"
+            document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
+            document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+
+            turn = 2;
+
+            document.getElementById("player1-div").style.animation = "none"
+            document.getElementById("player2-div").style.animation = "turn 1s infinite ease-in-out"
+        }else{
+            document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
+            document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+            
+            if (player1CurrentPosition == 100){
+                setTimeout(()=>{
+
+                    localStorage.setItem("winner" , localStorage.getItem("player1Name"))
+
+                    window.location.href = "result.html"
+                } , 1200)
+
+                localStorage.setItem("rollCount" , player1RollCount)
+
+                return;
+            }
+
+            turn = 2;
+            document.getElementById("player1-div").style.animation = "none"
+            document.getElementById("player2-div").style.animation = "turn 1s infinite ease-in-out"
+        }
+
     }
     else{
+
+        player2RollCount++
 
         document.getElementById(player2CurrentPosition.toString()).innerHTML = player2CurrentPosition
 
         player2CurrentPosition += diceNumber+1
         console.log(player2CurrentPosition , "player2")
 
-        document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
+        if (player2CurrentPosition > 100){
+            player2CurrentPosition -= diceNumber+1
 
-        turn = 1;
-        document.getElementById("player2-div").style.animation = "none"
-        document.getElementById("player1-div").style.animation = "turn 1s infinite ease-in-out"
+            document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
+            document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+
+            turn = 1;
+
+            document.getElementById("player2-div").style.animation = "none"
+            document.getElementById("player1-div").style.animation = "turn 1s infinite ease-in-out"
+        }
+        else{
+            document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
+            document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+            
+            if (player2CurrentPosition == 100){
+                setTimeout(()=>{
+
+                    localStorage.setItem("winner" , localStorage.getItem("player2Name"))
+
+                    window.location.href = "result.html"
+                } , 1200)
+
+                localStorage.setItem("rollCount" , player2RollCount)
+
+                return;
+            }
+
+            turn = 1;
+            document.getElementById("player2-div").style.animation = "none"
+            document.getElementById("player1-div").style.animation = "turn 1s infinite ease-in-out"
+        }
+
     }
 }

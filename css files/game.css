@@ -178,14 +178,6 @@ button{
     z-index: 10;
 }
 
-#player1-icon{
-    background-color: aqua;
-}
-
-#player2-icon{
-    background-color: black;
-}
-
 
 
 @media all and (min-width:350px) and (max-width:850px){
