@@ -1,4 +1,21 @@
 
+SnakeLocations = [
+    {head:32,tail:10},
+    {head:62,tail:18},
+    {head:69,tail:36},
+    {head:97,tail:78}   
+]
+
+LaddersLocations = [
+    {from:6,to:16},
+    {from:21,to:42},
+    {from:28,to:76},
+    {from:45,to:63},
+    {from:50,to:67},
+    {from:71,to:92},
+    {from:80,to:98}
+]
+
 document.getElementById("game-quit").addEventListener("click" , ()=>{
     var ans = confirm("Do you want to quit the Game?")
     if (ans == true) {
@@ -30,14 +47,14 @@ var player2RollCount = 0;
 var samePosition = false;
 
 function start(){
+
+    // if player1's turn is there 
     if (turn == 1){
 
         player1RollCount++
 
-
-
+        // checks if position was same 
         if (samePosition == true){
-            console.log("hello")
             document.getElementById(player1CurrentPosition.toString()).innerHTML = player1CurrentPosition + '<span id="player2-icon" class="icon"></span>'
             document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
 
@@ -47,6 +64,7 @@ function start(){
             document.getElementById(player1CurrentPosition.toString()).innerHTML = player1CurrentPosition
         }
 
+        // gets random no from dice and adds it to the position to move 
         player1CurrentPosition += diceNumber+1
         console.log(player1CurrentPosition , "player1")
 
@@ -70,11 +88,13 @@ function start(){
                 document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
             }
 
+             // change turn 
             turn = 2;
 
             document.getElementById("player1-div").style.animation = "none"
             document.getElementById("player2-div").style.animation = "turn 1s infinite ease-in-out"
         }else{
+            
             document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
 
             if (player1CurrentPosition == player2CurrentPosition){
@@ -102,6 +122,33 @@ function start(){
                 return;
             }
 
+            // console.log(checksnake(player1CurrentPosition))
+            // console.log(checkladder(player1CurrentPosition))
+
+            if (checksnake(player1CurrentPosition) != -1){
+
+                // remove the icon 
+                document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
+                // update the position 
+                player1CurrentPosition = SnakeLocations[checksnake(player1CurrentPosition)].tail
+                // add the icon 
+                document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
+                document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+
+
+            }else if (checkladder(player1CurrentPosition) != -1){
+
+                // remove the icon 
+                document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
+                // update the position 
+                player1CurrentPosition = LaddersLocations[checkladder(player1CurrentPosition)].to
+                // add the icon
+                document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
+                document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+
+            }
+
+             // change turn 
             turn = 2;
             document.getElementById("player1-div").style.animation = "none"
             document.getElementById("player2-div").style.animation = "turn 1s infinite ease-in-out"
@@ -150,14 +197,16 @@ function start(){
                 document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
             }
 
+             // change turn 
             turn = 1;
 
             document.getElementById("player2-div").style.animation = "none"
             document.getElementById("player1-div").style.animation = "turn 1s infinite ease-in-out"
         }
         else{
-            document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
             // document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+        
+            document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
 
             if (player1CurrentPosition == player2CurrentPosition){
 
@@ -186,10 +235,59 @@ function start(){
                 return;
             }
 
+            
+
+            if (checksnake(player2CurrentPosition) != -1){
+
+                // remove the icon 
+                document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon"))
+                // update the position 
+                player2CurrentPosition = SnakeLocations[checksnake(player2CurrentPosition)].tail
+                // add the icon
+                document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
+                document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+
+
+            }else if (checkladder(player2CurrentPosition) != -1){
+
+                // remove the icon 
+                document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon"))
+                // update the position 
+                player2CurrentPosition = LaddersLocations[checkladder(player2CurrentPosition)].to
+                // add the icon
+                document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
+                document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+
+            }
+
+            // change turn 
             turn = 1;
             document.getElementById("player2-div").style.animation = "none"
             document.getElementById("player1-div").style.animation = "turn 1s infinite ease-in-out"
         }
 
     }
+}
+
+
+function checksnake(position){
+    
+    for (let i=0 ; i<SnakeLocations.length ; i++){
+        if (SnakeLocations[i].head == position){
+            return i
+        }
+    }
+    return -1
+    
+}
+
+function checkladder(position){
+    
+    for (let i=0 ; i<LaddersLocations.length ; i++){
+        if (LaddersLocations[i].from == position){
+            return i
+        }
+    }   
+    return -1
+
 }
