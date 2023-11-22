@@ -27,13 +27,25 @@ var player2CurrentPosition = 1;
 var turn=1;
 var player1RollCount = 0;
 var player2RollCount = 0;
+var samePosition = false;
 
 function start(){
     if (turn == 1){
 
         player1RollCount++
 
-        document.getElementById(player1CurrentPosition.toString()).innerHTML = player1CurrentPosition
+
+
+        if (samePosition == true){
+            console.log("hello")
+            document.getElementById(player1CurrentPosition.toString()).innerHTML = player1CurrentPosition + '<span id="player2-icon" class="icon"></span>'
+            document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+
+            samePosition = false;
+
+        }else{
+            document.getElementById(player1CurrentPosition.toString()).innerHTML = player1CurrentPosition
+        }
 
         player1CurrentPosition += diceNumber+1
         console.log(player1CurrentPosition , "player1")
@@ -45,12 +57,16 @@ function start(){
             
 
             if (player1CurrentPosition == player2CurrentPosition){
+
+                samePosition = true;
+
                 document.getElementById("player2-icon").style.background = `linear-gradient(to right,
                     ${localStorage.getItem("player1color")} 0%,
                     ${localStorage.getItem("player1color")} 50%,
                     ${localStorage.getItem("player2color")} 50%,
                     ${localStorage.getItem("player2color")} 100%)`
             }else{
+                samePosition = false
                 document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
             }
 
@@ -62,12 +78,14 @@ function start(){
             document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
 
             if (player1CurrentPosition == player2CurrentPosition){
+                samePosition = true
                 document.getElementById("player2-icon").style.background = `linear-gradient(to right,
                     ${localStorage.getItem("player1color")} 0%,
                     ${localStorage.getItem("player1color")} 50%,
                     ${localStorage.getItem("player2color")} 50%,
                     ${localStorage.getItem("player2color")} 100%)`
             }else{
+                samePosition = false
                 document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
             }
             
@@ -96,7 +114,17 @@ function start(){
 
         player2RollCount++
 
-        document.getElementById(player2CurrentPosition.toString()).innerHTML = player2CurrentPosition
+        if (samePosition == true){
+            console.log("hello")
+            document.getElementById(player2CurrentPosition.toString()).innerHTML = player2CurrentPosition + '<span id="player1-icon" class="icon"></span>'
+            document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+
+
+            samePosition = false;
+
+        }else{
+            document.getElementById(player2CurrentPosition.toString()).innerHTML = player2CurrentPosition
+        }
 
         player2CurrentPosition += diceNumber+1
         console.log(player2CurrentPosition , "player2")
@@ -108,12 +136,17 @@ function start(){
             // document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
 
             if (player1CurrentPosition == player2CurrentPosition){
+
+                samePosition = true; 
+
                 document.getElementById("player1-icon").style.background = `linear-gradient(to right,
                     ${localStorage.getItem("player1color")} 0%,
                     ${localStorage.getItem("player1color")} 50%,
                     ${localStorage.getItem("player2color")} 50%,
                     ${localStorage.getItem("player2color")} 100%)`
             }else{
+
+                samePosition = false
                 document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
             }
 
@@ -127,12 +160,16 @@ function start(){
             // document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
 
             if (player1CurrentPosition == player2CurrentPosition){
+
+                samePosition = true
+
                 document.getElementById("player1-icon").style.background = `linear-gradient(to right,
                     ${localStorage.getItem("player1color")} 0%,
                     ${localStorage.getItem("player1color")} 50%,
                     ${localStorage.getItem("player2color")} 50%,
                     ${localStorage.getItem("player2color")} 100%)`
             }else{
+                samePosition = false
                 document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
             }
             
