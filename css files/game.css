@@ -4,6 +4,7 @@ button{
 
 #heading{
     margin-top: 0;
+    height: 8vw;
 }
 
 .game-board{
@@ -11,6 +12,7 @@ button{
     width: 40vw;
     height: 40vw;
     position: relative;
+    right: 60px;
 }
 
 .turn{
@@ -234,6 +236,8 @@ button{
     }
     .main-board{
         flex-direction: column-reverse;
+        position: relative;
+        bottom: 5vw;
     }
     .turn-board{
         flex-direction: row;
@@ -250,6 +254,7 @@ button{
         height: 85vw;
         margin-bottom: 10vw;
         font-size: 12px;
+        right: 0;
     }
     #player1-div{
         width: 30vw;
@@ -263,7 +268,7 @@ button{
         font-size: 12vw;
     }
     #heading{
-        margin-top: 5vw;
+        height: 55vw;
     }
     .row1 div , .row2 div{
         width: 8.5vw;

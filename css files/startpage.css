@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marhey:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Marhey:wght@500&display=swap');
 
 
 *{
@@ -9,7 +11,9 @@
 }
 
 body{
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
+    /* font-family: 'Marhey', sans-serif; */
+    font-family: 'Bungee', sans-serif;
     background-color: #FF7A00;
 }
 
@@ -38,11 +42,12 @@ body{
     color: #FF0000;
     /* -webkit-text-stroke: 3px black; */
     text-shadow: 0 0 5px black;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 #heading{
-    margin-top: 50px;
+    margin-top: 25px;
+    margin-left: 50px;
 }
 
 #heading img{
@@ -73,15 +78,13 @@ button{
     height: 7vh;
     margin-bottom: 3vw;
     font-size: 1.5vw;
-    font-family: 'Jost', sans-serif;
+    /* font-family: 'Jost', sans-serif; */
+    font-family: 'Bungee', sans-serif;
+
     background-color: #D9D9D9;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-}
-
-.maindiv{
-    margin-top: 5vw;
 }
 
 input{
@@ -89,7 +92,9 @@ input{
     height: 8vh;
     margin: 4vw 0 1vw;
     font-size: 1vw;
-    font-family: 'Jost', sans-serif;
+    /* font-family: 'Jost', sans-serif; */
+    font-family: 'Bungee', sans-serif;
+
     background-color: #D9D9D9;
     border: none;
     border-radius: 10px;
@@ -98,7 +103,9 @@ input{
 }
 
 label{
-    font-family: 'Jost', sans-serif;
+    /* font-family: 'Jost', sans-serif; */
+        font-family: 'Bungee', sans-serif;
+
     font-weight: bold;
     font-size: 2vw;
     color: white;
@@ -155,15 +162,17 @@ label{
 
 .main-div{
     gap: 10vw;
-    margin: 5vw 20vw 0 0;    
+    margin: 0 20vw 0 0;    
 }
 
 .main-div h1{
-    font-size: 1.7vw;
+    font-size: 1.4vw;
     text-align: center;
     color: white;
-    margin-top: 2vw;
-    font-family: 'Jost', sans-serif;
+    /* margin-top: 2vw; */
+    /* font-family: 'Jost', sans-serif; */
+        font-family: 'Bungee', sans-serif;
+
 }
 
 .btn{
@@ -177,7 +186,9 @@ label{
 .result-div{
     color: white;
     gap: 45vw;
-    font-family: 'Jost', sans-serif;
+    /* font-family: 'Jost', sans-serif; */
+        font-family: 'Bungee', sans-serif;
+
     width: 100vw;
     margin-top: 7vw;
 }
@@ -233,8 +244,20 @@ label{
 
     #heading{
         flex-direction: column;
-        margin-bottom: 20vw;
+        margin-bottom: 15vw;
         margin-left:13vw;
+    }
+
+    #heading div{
+        position: relative;
+    }
+
+    .t5{
+        top: 5vw;
+    }
+
+    .b5{
+        bottom: 5vw;
     }
 
     .maindiv{
@@ -243,5 +266,8 @@ label{
     button{
         width: 40vw;
         font-size: 5vw;
+    }
+    #StartGame , #Instructions{
+        width: 50vw;
     }
 }

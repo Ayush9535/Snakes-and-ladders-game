@@ -22,7 +22,7 @@ ol{
     background-color: #D9D9D9;
     padding: 3vw;
     font-family: 'Jost', sans-serif;
-    margin: 8vh 0 5vh;
+    margin: 0 0 5vh;
     border-radius: 10px;
     text-align: center;
 }
@@ -47,7 +47,7 @@ ol{
         font-size: 7vw;
     }
     #heading{
-        margin-bottom: 10vw;
+        margin-bottom: -5vw;
     }
     .instructions-div h1{
         font-size: 7vw;

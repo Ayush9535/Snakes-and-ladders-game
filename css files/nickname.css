@@ -11,10 +11,10 @@
     }
 
     input{
-        width: 50vw;
+        width: 70vw;
         height: 15vw;
         padding: 0 10px;
-        font-size: 5vw;
+        font-size: 4vw;
     }
     label{
         font-size: 5vw;
@@ -30,7 +30,7 @@
         font-size: 3vw;
     }
     #heading{
-        margin-top: 10vw;
+        margin-top: 0;
         margin-bottom: 0;
     }
 }
