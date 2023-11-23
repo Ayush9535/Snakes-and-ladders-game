@@ -56,6 +56,8 @@ var player1RollCount = 0;
 var player2RollCount = 0;
 var samePosition = false;
 
+old1 = player1CurrentPosition
+
 function start(){
 
     // if player1's turn is there 
@@ -97,8 +99,26 @@ function start(){
             // adding icon to current position of player 
             document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
 
-            checkSamePosition()
+            // for (let i=0 ; i<=(player1CurrentPosition - old1) ; i++){
+            //     setTimeout(()=>{
+            //         document.getElementById(`${i+1}`).innerHTML += '<span id="player1-icon" class="icon"></span>'
+            //         checkSamePosition()
+            //         // document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
+            //     } , 1000)
+            // }
+
+            // setInterval(()=>{
+            //     old1++
+            //     document.getElementById(old1.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
+            //     checkSamePosition()
+
+            //     if (old1 == player1CurrentPosition){
+            //         clearInterval()
+            //     }
+            // } , 1000)
             
+            checkSamePosition()
+
             // after win 
             if (player1CurrentPosition == 100){
                 var winSound = new Audio("./Audio files/Winning sound.mp3")
