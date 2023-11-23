@@ -117,31 +117,31 @@ function start(){
             if (checksnake(player1CurrentPosition) != -1){
                 let Snakeindex = checksnake(player1CurrentPosition)
                 snakeAudio.play()
-                snakeAudio.addEventListener("ended" , function(){
-                    // remove the icon 
-                    document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
-                    // update the position
-                    console.log(Snakeindex) 
-                    player1CurrentPosition = SnakeLocations[Snakeindex].tail
-                    // add the icon 
-                    document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-                    document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
-                })
+                // remove the icon 
+                document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
+                // update the position
+                // console.log(Snakeindex) 
+                console.log(player1CurrentPosition," old player1")
+                player1CurrentPosition = SnakeLocations[Snakeindex].tail
+                console.log(player1CurrentPosition,"new player1")
+                // add the icon 
+                document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
+                document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
 
 
             }else if (checkladder(player1CurrentPosition) != -1){
                 let ladderIndex = checkladder(player1CurrentPosition)
                 ladderAudio.play()
-                ladderAudio.addEventListener("ended" , function(){
-                    // remove the icon 
-                    document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
-                    // update the position
-                    console.log(ladderIndex) 
-                    player1CurrentPosition = LaddersLocations[ladderIndex].to
-                    // add the icon
-                    document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-                    document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
-                })
+                // remove the icon 
+                document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
+                // update the position
+                console.log(ladderIndex) 
+                console.log(player1CurrentPosition," old player1")
+                player1CurrentPosition = LaddersLocations[ladderIndex].to
+                console.log(player1CurrentPosition,"new player1")
+                // add the icon
+                document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
+                document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
 
             }
 
@@ -214,31 +214,31 @@ function start(){
             if (checksnake(player2CurrentPosition) != -1){
                 let Snakeindex1 = checksnake(player2CurrentPosition)
                 snakeAudio.play()
-                snakeAudio.addEventListener("ended" , function(){
-                    // remove the icon 
-                    document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon"))
-                    // update the position
-                    console.log(Snakeindex1) 
-                    player2CurrentPosition = SnakeLocations[Snakeindex1].tail
-                    // add the icon
-                    document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
-                    document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
-                })
+                // remove the icon 
+                document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon"))
+                // update the position
+                console.log(Snakeindex1) 
+                console.log(player2CurrentPosition," old player2")
+                player2CurrentPosition = SnakeLocations[Snakeindex1].tail
+                console.log(player2CurrentPosition,"new player2")
+                // add the icon
+                document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
+                document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
 
 
             }else if (checkladder(player2CurrentPosition) != -1){
                 let ladderIndex1 = checkladder(player2CurrentPosition)
                 ladderAudio.play()
-                ladderAudio.addEventListener("ended" , function(){
-                    // remove the icon 
-                    document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon")) 
-                    // update the position 
-                    console.log(ladderIndex1)
-                    player2CurrentPosition = LaddersLocations[ladderIndex1].to
-                    // add the icon
-                    document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
-                    document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
-                })
+                // remove the icon 
+                document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon")) 
+                // update the position 
+                console.log(ladderIndex1)
+                console.log(player2CurrentPosition," old player2")
+                player2CurrentPosition = LaddersLocations[ladderIndex1].to
+                console.log(player2CurrentPosition,"new player2")
+                // add the icon
+                document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
+                document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
 
             }
 
