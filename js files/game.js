@@ -58,7 +58,7 @@ var samePosition = false;
 
 old1 = player1CurrentPosition
 
-function start(){
+async function start(){
 
     // if player1's turn is there 
     if (turn == 1){
@@ -99,24 +99,42 @@ function start(){
             // adding icon to current position of player 
             document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
 
-            // for (let i=0 ; i<=(player1CurrentPosition - old1) ; i++){
-            //     setTimeout(()=>{
-            //         document.getElementById(`${i+1}`).innerHTML += '<span id="player1-icon" class="icon"></span>'
-            //         checkSamePosition()
-            //         // document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
-            //     } , 1000)
+
+            // let oldPosition = player1CurrentPosition - diceNumber - 1;
+
+            // for (let i = oldPosition + 1; i <= player1CurrentPosition; i++) {
+            //     setTimeout(() => {
+            //         document.getElementById(i.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>';
+            //         document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color");
+                    
+            //         if (i > oldPosition + 1) {
+            //             document.getElementById((i - 1).toString()).innerHTML = `${i-1}`;
+            //         }
+                    
+            //     }, 500 * (i - oldPosition));
+                
             // }
-
-            // setInterval(()=>{
-            //     old1++
-            //     document.getElementById(old1.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-            //     checkSamePosition()
-
-            //     if (old1 == player1CurrentPosition){
-            //         clearInterval()
-            //     }
-            // } , 1000)
+                
+            // await new Promise(resolve => {
+            //     for (let i = oldPosition + 1; i <= player1CurrentPosition; i++) {
+            //             setTimeout(() => {
+            //                 document.getElementById(i.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>';
+            //                 document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color");
             
+            //                 // Remove the icon from the previous position after moving
+            //                 if (i > oldPosition + 1) {
+            //                     document.getElementById((i - 1).toString()).innerHTML = `${i-1}`;
+            //                 }
+            
+            //                 // Remove the icon from the old position after the animation completes
+                            
+            //             }, 500 * (i - oldPosition));
+            //         }
+            //     resolve(); // Resolve the promise to indicate the completion of this step
+            // });
+                
+            
+    
             checkSamePosition()
 
             // after win 
@@ -315,10 +333,16 @@ function checkSamePosition(){
         }
     }else{
         samePosition = false
-        if (turn == 1){
-            document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
-        }else{
-            document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+        if (turn == 1) {
+            let player1Icon = document.getElementById("player1-icon");
+            if (player1Icon) {
+                player1Icon.style.backgroundColor = localStorage.getItem("player1color");
+            }
+        } else {
+            let player2Icon = document.getElementById("player2-icon");
+            if (player2Icon) {
+                player2Icon.style.backgroundColor = localStorage.getItem("player2color");
+            }
         }
     }
 }
