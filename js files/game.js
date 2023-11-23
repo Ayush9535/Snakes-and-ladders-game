@@ -77,6 +77,7 @@ function start(){
 
         // gets random no from dice and adds it to the position to move 
         player1CurrentPosition += diceNumber+1
+        // player1CurrentPosition += 5
 
         // condition to check if position is going greater than 100
         if (player1CurrentPosition > 100){
@@ -85,7 +86,7 @@ function start(){
             document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
             
             // checking if both player have same position 
-            checkSamePosition()
+            checkSamePosition(1)
 
              // change turn to player 2
             turn = 2;
@@ -96,7 +97,7 @@ function start(){
             
             // adding icon to current position of player 
             document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-            checkSamePosition()
+            checkSamePosition(1)
 
 
             // let oldPosition = player1CurrentPosition - diceNumber - 1;
@@ -154,18 +155,19 @@ function start(){
                 
                 let Snakeindex = checksnake(player1CurrentPosition)
                 snakeAudio.play()
-                
-                // remove the icon 
-                document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
-                
-                // update the position
-                console.log(player1CurrentPosition," old player1")
-                player1CurrentPosition = SnakeLocations[Snakeindex].tail
-                console.log(player1CurrentPosition,"new player1")
-
-                // add the icon 
-                document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-                checkSamePosition()
+                setTimeout(()=>{
+                    // remove the icon 
+                    document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
+                    
+                    // update the position
+                    console.log(player1CurrentPosition," old player1")
+                    player1CurrentPosition = SnakeLocations[Snakeindex].tail
+                    console.log(player1CurrentPosition,"new player1")
+    
+                    // add the icon 
+                    document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
+                    checkSamePosition(1)
+                } , 1000)
                 
                 
             // check for ladder at player 1 position 
@@ -173,31 +175,34 @@ function start(){
 
                 let ladderIndex = checkladder(player1CurrentPosition)
                 ladderAudio.play()
-
-                // remove the icon 
-                document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
-
-                // update the position
-                console.log(ladderIndex) 
-                console.log(player1CurrentPosition," old player1")
-                player1CurrentPosition = LaddersLocations[ladderIndex].to
-                console.log(player1CurrentPosition,"new player1")
-
-                // add the icon
-                document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-                checkSamePosition()
-
+                setTimeout(()=>{
+                    // remove the icon 
+                    document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
+    
+                    // update the position
+                    console.log(ladderIndex) 
+                    console.log(player1CurrentPosition," old player1")
+                    player1CurrentPosition = LaddersLocations[ladderIndex].to
+                    console.log(player1CurrentPosition,"new player1")
+                    
+                    // add the icon
+                    document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
+                    checkSamePosition(1)
+                    
+                } , 1000)
+                
+                
             }
-
-             // change turn to player 2
+            
+            // change turn to player 2
             turn = 2;
             document.getElementById("player1-div").style.animation = "none"
             document.getElementById("player2-div").style.animation = "turn 1s infinite ease-in-out"
         }
 
     }
-
-
+    
+    
     else{
 
         player2RollCount++
@@ -215,6 +220,7 @@ function start(){
 
         // updating position of player 2
         player2CurrentPosition += diceNumber+1
+        // player2CurrentPosition += 5
 
         // checking if position is exceeding 100 
         if (player2CurrentPosition > 100){
@@ -222,7 +228,7 @@ function start(){
 
             document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
 
-            checkSamePosition()
+            checkSamePosition(2)
 
              // change turn to player 1
             turn = 1;
@@ -232,7 +238,7 @@ function start(){
         else{
         
             document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
-            checkSamePosition()
+            checkSamePosition(2)
             
             // check winning condition 
             if (player2CurrentPosition == 100){
@@ -256,19 +262,22 @@ function start(){
 
                 let Snakeindex1 = checksnake(player2CurrentPosition)
                 snakeAudio.play()
+                setTimeout(()=>{
+                    // remove the icon 
+                    document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon"))
+    
+                    // update the position
+                    console.log(Snakeindex1) 
+                    console.log(player2CurrentPosition," old player2")
+                    player2CurrentPosition = SnakeLocations[Snakeindex1].tail
+                    console.log(player2CurrentPosition,"new player2")
+    
+                    // add the icon
+                    document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
+                    checkSamePosition(2)
 
-                // remove the icon 
-                document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon"))
+                } , 1000)
 
-                // update the position
-                console.log(Snakeindex1) 
-                console.log(player2CurrentPosition," old player2")
-                player2CurrentPosition = SnakeLocations[Snakeindex1].tail
-                console.log(player2CurrentPosition,"new player2")
-
-                // add the icon
-                document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
-                checkSamePosition()
                 
                 
             // check for Ladder for player 2 position 
@@ -276,19 +285,23 @@ function start(){
 
                 let ladderIndex1 = checkladder(player2CurrentPosition)
                 ladderAudio.play()
+                setTimeout(()=>{
+                    // remove the icon 
+                    document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon")) 
+    
+                    // update the position 
+                    console.log(ladderIndex1)
+                    console.log(player2CurrentPosition," old player2")
+                    player2CurrentPosition = LaddersLocations[ladderIndex1].to
+                    console.log(player2CurrentPosition,"new player2")
+    
+                    // add the icon
+                    document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
+                    checkSamePosition(2)
 
-                // remove the icon 
-                document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon")) 
+                    
+                } , 1000)
 
-                // update the position 
-                console.log(ladderIndex1)
-                console.log(player2CurrentPosition," old player2")
-                player2CurrentPosition = LaddersLocations[ladderIndex1].to
-                console.log(player2CurrentPosition,"new player2")
-
-                // add the icon
-                document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
-                checkSamePosition()
 
             }
 
@@ -324,7 +337,7 @@ function checkladder(position){
 
 }
 
-function checkSamePosition(){
+function checkSamePosition(turn){
     if (player1CurrentPosition == player2CurrentPosition){
 
         samePosition = true
