@@ -5,16 +5,15 @@ backgroundSound.loop = true;
 backgroundSound.volume = 0.5
 
 document.getElementById("StartGame").addEventListener("click", function() {
-    backgroundSound.play()
-    backgroundSound.loop = true;
-    backgroundSound.volume = 0.5
-    window.location.href = "nickname.html";
+    // document.getElementById("StartGame").style.animation = "nextPage 4s ease-in-out"
+    // document.getElementById("StartGame").innerHTML = ""
+    setTimeout(()=>{
+        window.location.href = "nickname.html";
+
+    } , 10)
 });
 
 document.getElementById("Instructions").addEventListener("click" ,  ()=>{
-    backgroundSound.play()
-    backgroundSound.loop = true;
-    backgroundSound.volume = 0.5
     window.location.href = "instructions.html"
 })
 
