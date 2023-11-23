@@ -110,6 +110,7 @@ label{
     border-radius: 50%;
     cursor: pointer;
     margin-top: 22px;
+    box-shadow: 0 0 0 0 black;
 }
 
 .player-icon-div{
@@ -131,18 +132,25 @@ label{
 
 .green{
     background-color: #18FF04;
+    box-shadow: 0 0 17px 1px #18FF04;
 }
 
 .yellow{
     background-color: #EBFF00;
+    box-shadow: 0 0 17px 1px #EBFF00;
+
 }
 
 .purple{
     background-color: #FF00E5;
+    box-shadow: 0 0 17px 1px #FF00E5;
+
 }
 
 .blue{
     background-color: #06F0FF;
+    box-shadow: 0 0 17px 1px #06F0FF;
+
 }
 
 .main-div{

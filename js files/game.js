@@ -56,9 +56,8 @@ var player1RollCount = 0;
 var player2RollCount = 0;
 var samePosition = false;
 
-old1 = player1CurrentPosition
 
-async function start(){
+function start(){
 
     // if player1's turn is there 
     if (turn == 1){
@@ -78,7 +77,6 @@ async function start(){
 
         // gets random no from dice and adds it to the position to move 
         player1CurrentPosition += diceNumber+1
-        // console.log(player1CurrentPosition , "player1")
 
         // condition to check if position is going greater than 100
         if (player1CurrentPosition > 100){
@@ -89,15 +87,16 @@ async function start(){
             // checking if both player have same position 
             checkSamePosition()
 
-             // change turn 
+             // change turn to player 2
             turn = 2;
-
             document.getElementById("player1-div").style.animation = "none"
             document.getElementById("player2-div").style.animation = "turn 1s infinite ease-in-out"
+
         }else{
             
             // adding icon to current position of player 
             document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
+            checkSamePosition()
 
 
             // let oldPosition = player1CurrentPosition - diceNumber - 1;
@@ -133,11 +132,8 @@ async function start(){
             //     resolve(); // Resolve the promise to indicate the completion of this step
             // });
                 
-            
-    
-            checkSamePosition()
 
-            // after win 
+            // checking win condition 
             if (player1CurrentPosition == 100){
                 var winSound = new Audio("./Audio files/Winning sound.mp3")
                 winSound.play()
@@ -153,39 +149,47 @@ async function start(){
                 return;
             }
 
-
+            // check for snake at player 1 position 
             if (checksnake(player1CurrentPosition) != -1){
+                
                 let Snakeindex = checksnake(player1CurrentPosition)
                 snakeAudio.play()
+                
                 // remove the icon 
                 document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
+                
                 // update the position
-                // console.log(Snakeindex) 
                 console.log(player1CurrentPosition," old player1")
                 player1CurrentPosition = SnakeLocations[Snakeindex].tail
                 console.log(player1CurrentPosition,"new player1")
+
                 // add the icon 
                 document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-                document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
-
-
+                checkSamePosition()
+                
+                
+            // check for ladder at player 1 position 
             }else if (checkladder(player1CurrentPosition) != -1){
+
                 let ladderIndex = checkladder(player1CurrentPosition)
                 ladderAudio.play()
+
                 // remove the icon 
                 document.getElementById("player1-icon").parentNode.removeChild(document.getElementById("player1-icon"))
+
                 // update the position
                 console.log(ladderIndex) 
                 console.log(player1CurrentPosition," old player1")
                 player1CurrentPosition = LaddersLocations[ladderIndex].to
                 console.log(player1CurrentPosition,"new player1")
+
                 // add the icon
                 document.getElementById(player1CurrentPosition.toString()).innerHTML += '<span id="player1-icon" class="icon"></span>'
-                document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
+                checkSamePosition()
 
             }
 
-             // change turn 
+             // change turn to player 2
             turn = 2;
             document.getElementById("player1-div").style.animation = "none"
             document.getElementById("player2-div").style.animation = "turn 1s infinite ease-in-out"
@@ -199,7 +203,6 @@ async function start(){
         player2RollCount++
 
         if (samePosition == true){
-            // console.log("hello")
             document.getElementById(player2CurrentPosition.toString()).innerHTML = player2CurrentPosition + '<span id="player1-icon" class="icon"></span>'
             document.getElementById("player1-icon").style.backgroundColor = localStorage.getItem("player1color")
 
@@ -210,30 +213,28 @@ async function start(){
             document.getElementById(player2CurrentPosition.toString()).innerHTML = player2CurrentPosition
         }
 
+        // updating position of player 2
         player2CurrentPosition += diceNumber+1
-        // console.log(player2CurrentPosition , "player2")
 
+        // checking if position is exceeding 100 
         if (player2CurrentPosition > 100){
             player2CurrentPosition -= diceNumber+1
 
             document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
-            // document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
 
             checkSamePosition()
 
-             // change turn 
+             // change turn to player 1
             turn = 1;
-
             document.getElementById("player2-div").style.animation = "none"
             document.getElementById("player1-div").style.animation = "turn 1s infinite ease-in-out"
         }
         else{
-            // document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
         
             document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
-
             checkSamePosition()
             
+            // check winning condition 
             if (player2CurrentPosition == 100){
                 var winSound = new Audio("./Audio files/Winning sound.mp3")
                 winSound.play()
@@ -250,39 +251,48 @@ async function start(){
             }
 
             
-
+            // check for snake for player 2 position 
             if (checksnake(player2CurrentPosition) != -1){
+
                 let Snakeindex1 = checksnake(player2CurrentPosition)
                 snakeAudio.play()
+
                 // remove the icon 
                 document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon"))
+
                 // update the position
                 console.log(Snakeindex1) 
                 console.log(player2CurrentPosition," old player2")
                 player2CurrentPosition = SnakeLocations[Snakeindex1].tail
                 console.log(player2CurrentPosition,"new player2")
+
                 // add the icon
                 document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
-                document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
-
-
+                checkSamePosition()
+                
+                
+            // check for Ladder for player 2 position 
             }else if (checkladder(player2CurrentPosition) != -1){
+
                 let ladderIndex1 = checkladder(player2CurrentPosition)
                 ladderAudio.play()
+
                 // remove the icon 
                 document.getElementById("player2-icon").parentNode.removeChild(document.getElementById("player2-icon")) 
+
                 // update the position 
                 console.log(ladderIndex1)
                 console.log(player2CurrentPosition," old player2")
                 player2CurrentPosition = LaddersLocations[ladderIndex1].to
                 console.log(player2CurrentPosition,"new player2")
+
                 // add the icon
                 document.getElementById(player2CurrentPosition.toString()).innerHTML += '<span id="player2-icon" class="icon"></span>'
-                document.getElementById("player2-icon").style.backgroundColor = localStorage.getItem("player2color")
+                checkSamePosition()
 
             }
 
-            // change turn 
+            // change turn to player 1
             turn = 1;
             document.getElementById("player2-div").style.animation = "none"
             document.getElementById("player1-div").style.animation = "turn 1s infinite ease-in-out"
