@@ -15,5 +15,7 @@
     }
     .result-text{
         right: 0;
+        text-align: center;
+        width: 90vw;
     }
 }
