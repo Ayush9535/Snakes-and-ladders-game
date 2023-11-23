@@ -40,11 +40,13 @@ document.getElementById("dicebtn").addEventListener("click" , ()=>{
     diceAudio.play()
     document.getElementById("dicebtn").disabled = true
     diceNumber = Math.floor(Math.random()*6)
-    dice.src = `./Images/${diceNumber+1}.png`
-    start()
-    diceAudio.addEventListener("ended" , function(){
+    dice.classList.add("diceani")
+    setTimeout(()=>{
         document.getElementById("dicebtn").disabled = false
-    })
+        dice.src = `./Images/${diceNumber+1}.png`
+        start()
+        dice.classList.remove("diceani")
+    } , 1000)
 })
 
 var player1CurrentPosition = 1;

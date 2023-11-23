@@ -51,7 +51,7 @@ button{
 }
 
 .row1 div , .row2 div{
-    width: 4vw;
+    width: 6vw;
     height: 4vw;
     display: flex;
     justify-content: center;
@@ -191,6 +191,27 @@ button{
     background-color: transparent;
     margin: 0;
     height: fit-content;
+    margin: 0 10px;
+}
+
+@keyframes shake{
+    0%{
+        transform: rotate(0deg);
+    }25%{
+        transform: rotate(-10deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(10deg);
+    }100%{
+        transform: rotate(0deg);
+    }
+}
+
+.diceani{
+    animation: shake 1s ease-in-out
 }
 
 
