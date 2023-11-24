@@ -224,7 +224,7 @@ label{
     }
 }
 
-@media all and (min-width:300px) and (max-width:1000px){
+@media all and (min-width:300px) and (max-width:800px){
     .snakewithladder{
         display: none;
     }
