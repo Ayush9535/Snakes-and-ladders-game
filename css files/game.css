@@ -219,7 +219,7 @@ button{
 
 
 
-@media all and (min-width:300px) and (max-width:800px){
+@media all and (min-width:300px) and (max-width:700px){
     .game-div{
         flex-direction: column;
     }
@@ -240,7 +240,7 @@ button{
     .main-board{
         flex-direction: column-reverse;
         position: relative;
-        bottom: 25vw;
+        bottom: 15vw;
     }
     .turn-board{
         flex-direction: row;
