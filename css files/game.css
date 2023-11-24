@@ -286,88 +286,88 @@ button{
     }
     #ladder1{
         position: absolute;
-        width: 80px;
-        height: 100px;
+        width: 15vw;
+        height: 25vw;
         transform: rotate(45deg);
-        top: 8px;
-        left: 10px;
+        top: -1vw;
+        left: 6vw;
     }
     #ladder2{
         position: absolute;
-        width: 80px;
-        height: 80px;
+        width: 20vw;
+        height: 20vw;
         transform: rotate(-25deg);
-        right: -10px;
-        top: 8px;
+        right: -2px;
+        top: 2px;
     }
     #ladder3{
         position: absolute;
-        width: 60px;
-        height: 130px;
+        width: 15vw;
+        height: 33vw;
         transform: rotate(-55deg);
-        right: 40px;
-        top: 80px;
+        right: 10vw;
+        top: 21vw;
     }
     #ladder4{
         position: absolute;
-        width: 100px;
-        height: 210px;
+        width: 20vw;
+        height: 60vw;
         transform: rotate(-30deg);
-        bottom: 60px;
-        right: 80px;
+        bottom: 13vw;
+        right: 24vw;
         z-index: 1;
     }
     #ladder5{
         position: absolute;
-        width: 80px;
-        height: 100px;
+        width: 20vw;
+        height: 25vw;
         transform: rotate(-45deg);
-        top: 100px;
-        left: 80px;
+        top: 28vw;
+        left: 20vw;
     }
     #ladder6{
         position: absolute;
-        width: 80px;
-        height: 80px;
+        width: 20vw;
+        height: 20vw;
         transform: rotate(30deg);
-        bottom: 80px;
-        left: -10px;
+        bottom: 20vw;
+        left: -1vw;
     }
     #ladder7{
         position: absolute;
-        width: 50px;
-        height: 50px;
+        width: 13vw;
+        height: 13vw;
         transform: rotate(-40deg);
-        bottom: 10px;
-        left: 140px;
+        bottom: 1vw;
+        left: 37vw;
     }
     #snake1{
         position: absolute;
-        height: 50px;
+        height: 10vw;
         transform: rotate(-60deg);
-        top: 28px;
-        left: 50px;
+        top: 7vw;
+        left: 15vw;
     }
     #snake2{
         position: absolute;
-        height: 150px;
+        height: 41vw;
         transform: rotate(-50deg);
-        top: 130px;
-        left: 10px;
+        top: 31vw;
+        left: 2vw;
     }
     #snake3{
         position: absolute;
-        height: 120px;
+        height: 35vw;
         transform: rotate(105deg);
-        top: 100px;
-        right: 35px;
+        top: 25vw;
+        right: 10vw;
     }
     #snake4{
         position: absolute;
-        height: 60px;
+        height: 15vw;
         transform: rotate(68deg);
-        bottom: 30px;
-        right: -30px;
+        bottom: 8vw;
+        right: -8vw;
     }
     .icon{
         width: 5vw;
