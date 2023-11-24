@@ -13,6 +13,7 @@ button{
     height: 40vw;
     position: relative;
     right: 60px;
+    bottom: 15px;
 }
 
 .turn{
@@ -223,15 +224,17 @@ button{
         flex-direction: column;
     }
     .quitbtndiv{
-        margin-right: 50vw;
+        margin-right: 60vw;
         margin-top: 5vw;
     }
     button{
-        width: 20vw;
-        height: 10vw;
+        width: 18vw;
+        height: 9vw;
+        font-size: 3vw;
     }
     .quitbtndiv img{
-        width: 10vw;
+        width: 9vw;
+        display: none;
         
     }
     .main-board{
