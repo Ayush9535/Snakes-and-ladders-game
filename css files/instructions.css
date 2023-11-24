@@ -31,7 +31,7 @@ ol{
     text-decoration: underline;
 }
 
-@media all and (min-width:350px) and (max-width:850px){
+@media all and (min-width:350px) and (max-width:1000px){
     .instructions-div{
         width: 80vw;
         height: 90vw;
